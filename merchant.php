@@ -1,7 +1,7 @@
 <?php
-namespace transcoinme\merchant;
+namespace transcoinme\api;
 
-require_once('request.php');
+require_once __DIR__ .'/request.php';
 
 class Merchant extends Request {
 	public $sign = '';
@@ -12,14 +12,6 @@ class Merchant extends Request {
 		$this->type = 'merchant';
 		$this->access_key = $project_access_key;
 		$this->alowed_methods = ['process'];
-	}
-	
-	public function __call($method,$args){
-		if(!is_array($args)) return false;
-		$args[1]['type'] = $this->type;
-		$args[1] = json_encode($args[1]);
-		$this->sign = md5($args[1].$this->access_key);
-		return parent::__call($method, $args);
 	}
  }
  

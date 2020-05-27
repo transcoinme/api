@@ -1,12 +1,12 @@
 <?php
-namespace transcoinme\merchant;
+namespace transcoinme\api;
 
-require_once('merchant.php');
-require_once('exchange.php');
+require_once __DIR__ .'/merchant.php';
+require_once __DIR__ .'/exchange.php';
 
-$merch = new Merchant('my.merchant.transcoin.me/api','vAEfBkJfIRASDDFraSC');
+$merch = new Merchant('Your API URL','Your Project Access Key');
 
-$merch->process("POST",array(
+$merch->process(array(
     'project_id'    => 1,
     'amount' 		=> 200,
     'currency'      => 'EUR',
@@ -18,28 +18,27 @@ $merch->process("POST",array(
 echo  $merch->result.'<br><br>';
 
 
-$exch = new Exchange('my.merchant.transcoin.me/api');
+$exch = new Exchange('Your API URL','Your API Key');
 
-$exch->process("POST",array(
-    'partner_id'    => 2125,
-    'wallet' 		=> '15DQ4VCLvidYRsPjVKwxgntFrta16Kgikv',
-    'email'      	=> 'kon.peter.ua@gmail.com',
+$exch->getCalcData();
+echo  $exch->result.'<br><br>';
+
+$exch->process(array(
+    'partner_id'    => 'Your ID',
+    'wallet' 		=> 'Your wallet',
+    'email'      	=> 'Your email',
     'method' 		=> 2,
     'from'  		=> 2,
     'to'   			=> 3,
-    'sum'           => 200,
-    'order_url'     => 'http:\/\/my.merchant.transcoin.me\/ru\/transactions\/exchange\/2125\/',
+    'amount'        => 200,
     ));
 echo  $exch->result.'<br><br>';
 
-$exch->getCalcData("POST");
-echo  $exch->result.'<br><br>';
-
-$exch->getCalcComissions("POST",array(
+$exch->getCalcComissions(array(
     'method' 		=> 2,
     'from'  		=> 2,
     'to'   			=> 3,
-    'sum'           => 200,
+    'amount'        => 200,
     ));
 echo  $exch->result.'<br><br>';
 ?>
