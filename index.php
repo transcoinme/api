@@ -31,6 +31,7 @@ $exch->process(array(
     'from'  		=> 2,
     'to'   			=> 3,
     'amount'        => 200,
+	'lang_code'		=> 'en',
     ));
 echo  $exch->result.'<br><br>';
 
