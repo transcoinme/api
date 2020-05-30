@@ -1,0 +1,17 @@
+{
+  "name": "vakulenko/merchant-api-transcoin.me",
+  "description": "api library for merchant.transcoin.me",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Peter First",
+      "email": "kon.peter.ua@gmail.com"
+    }
+  ],
+  "require": {
+    "php":">=5.4.0"
+  },
+  "require-dev":{
+    "phpunit/phpunit":"4.8.9"
+  }
+}

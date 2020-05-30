@@ -1,5 +1,6 @@
 <?php
-namespace transcoinme\api;
+use transcoinme\api\Exchange as Exchange;
+use transcoinme\api\Merchant as Merchant;
 
 require_once __DIR__ .'/merchant.php';
 require_once __DIR__ .'/exchange.php';
