@@ -23,6 +23,7 @@ phpunit.phar
 .vs
 
 index_peter.php
+README_copy.md
 
 #node modules
 node_modules
