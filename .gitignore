@@ -23,3 +23,7 @@ phpunit.phar
 .vs
 
 index_peter.php
+
+#node modules
+node_modules
+package.json

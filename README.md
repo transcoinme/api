@@ -17,7 +17,7 @@
 | 5 | order_number    | int    | Номер заказа в вашем магазине (должен быть         |   |
 |   |                 |        | уникальным для конкретного проекта)                |   |
 | 6 | description     | string | Описание платежа                                   |   |
-| 7 | date            | date   | Дата заказа в формате date('d-m-Y H:i:s')          |   |
+| 7 | date            | string | Дата заказа в формате date('d-m-Y H:i:s')          |   |
 
 Метод возвращает ответ также в формате json. Описание ответа при успешном исходе:
 | № | Имя          | Тип    | Описание                                              |   |
@@ -100,9 +100,10 @@ curl 'http://merchant.transcoin.me/api/process/' \
 |   |                      |       | lim_count - ограничение транзакций  в день;                                           |   |
 | 3 | sell_payment_methods | array | Полностью аналогичен buy_payment_methods                                              |   |
 | 4 | valuts               | array | Массив валют. Массив имеет следующую структуру элемента:                              |   |
-|   |                      |       | id - идентификатор в нашей системеname - наименование валюты;                         |   |
-|   |                      |       | com - комиссия валюты;                                                                |   |
-|   |                      |       | img - иконка валюты; number_format - количество цифр после запятой;                   |   |
+|   |                      |       | id - идентификатор в нашей системе;                                                   |   |
+|   |                      |       | name - наименование валюты;                                                           |   |
+|   |                      |       | com - комиссия при проведении операций в данной валюте;                               |   |
+|   |                      |       | number_format - количество цифр после запятой;                   |   |
 |   |                      |       | reserv - доступное количество;                                                        |   |
 | 5 | crypto_valuts        | array | Массив криптовалют. Структура аналогична структуре  valuts                            |   |
 
@@ -177,22 +178,22 @@ curl 'http://merchant.transcoin.me/api/process/getCalcData' \
 | 3 | message | string | Сообщение об ошибке                                          |   |
 
 Пример запроса 
-curl 'http://merchant.transcoin.me/api/process/calcBuyComissions/' \
+curl 'http://merchant.transcoin.me/api/process/getCalcComissions/' \
   -H 'Content-Type: application/json' \
   --data {"from":"2","to":"3","method":"21","amount":"200"}\
 
 Пример ответа 
 { 	"result":true,
 	"data":{
-		"max":"3000",
+		"max":3000,
+		"min":50,
 		"metod_name":"Skrill",
-		"min":"50",
 		"minmax":"50 - 3000",
-		"our_com":"3.5",
-		"pay_methods_com":"1.76",
+		"our_com":3.5,
+		"pay_methods_com":1.76,
 		"reserv":"74.81 BTC",
 		"sum":473.69999999999993,
-		"sum_res":"0.07431916",
+		"sum_res":0.07431916,
 		"sum_res_nocom":0.07441915846815432,
 		"valut_com":0.0001
 	} 
