@@ -40,7 +40,7 @@ class Request {
 		curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 		curl_setopt($curl, CURLOPT_VERBOSE, 1);
 		curl_setopt($curl, CURLOPT_HEADER, 1);
-		
+
 		// EXECUTE:
 		$response = curl_exec($curl);
 		// Then, after your curl_exec call:
