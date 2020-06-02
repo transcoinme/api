@@ -4,6 +4,7 @@ See detailed manual here  http://transcoinme.github.io/apidocs/
 
 ## Merchant Example
 
+```php
 <?php
 use transcoinme\api\Merchant as Merchant;
 
@@ -33,9 +34,11 @@ $merch->process(array(
 echo  $merch->result.'<br><br>'; // or may be rerurn $merch->result;
 
 ?>
+```
 
 ## Exchange examples
 
+```php
 <?php
 use transcoinme\api\Exchange as Exchange;
 
@@ -76,3 +79,4 @@ $exch->getCalcComissions(array(
 // Request result will store in result property of the Exchange object (will be overwriten upon repeated request)
 echo  $exch->result.'<br><br>';
 ?>
+```
