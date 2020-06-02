@@ -1,8 +1,6 @@
 See detailed manual here  http://transcoinme.github.io/apidocs/
 
-# api-examples
-
-## Merchant Example
+# Merchant Example
 
 ```php
 <?php
@@ -36,7 +34,7 @@ echo  $merch->result.'<br><br>'; // or may be rerurn $merch->result;
 ?>
 ```
 
-## Exchange examples
+# Exchange examples
 
 ```php
 <?php
