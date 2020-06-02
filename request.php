@@ -51,11 +51,12 @@ class Request {
 		curl_close($curl);
 		$this->headers = [];
 		
+		$result = json_decode($result, true);
+		
 		if(!$this->result){
 			return false;
 		}
 
-		//$result = json_decode($result, true);
 		return true;
 	}
 	

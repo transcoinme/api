@@ -29,7 +29,8 @@ $merch->process(array(
     
 // Request result will store in result property of the merchant object
 //so we should to display it or may be you want to do something with it
-echo  $merch->result.'<br><br>'; // or may be rerurn $merch->result;
+print_r($merch->result); 
+echo '<br><br>'; // or may be rerurn $merch->result;
 
 ?>
 ```
@@ -50,7 +51,8 @@ $exch = new Exchange(<Your API URL>,<Your API Key>);
 //First, we request data for calculating the transaction
 $exch->getCalcData();
 // Request result will store in result property of the Exchange object
-echo  $exch->result.'<br><br>';
+print_r($exch->result); 
+echo '<br><br>';
 
 $exch->process(array(
     'partner_id'    => <Your ID>, //you may find on the settings page on our website
@@ -65,7 +67,8 @@ $exch->process(array(
     ));
     
 // Request result will store in result property of the Exchange object (will be overwriten upon repeated request)
-echo  $exch->result.'<br><br>';
+print_r($exch->result); 
+echo '<br><br>';
 
 $exch->getCalcComissions(array(
     'method'        => 2, //method ID (you may get it from request getCalcData)
@@ -75,6 +78,7 @@ $exch->getCalcComissions(array(
     ));
     
 // Request result will store in result property of the Exchange object (will be overwriten upon repeated request)
-echo  $exch->result.'<br><br>';
+print_r($exch->result); 
+echo '<br><br>';
 ?>
 ```
