@@ -21,7 +21,9 @@ echo  $merch->result.'<br><br>';
 
 $exch = new Exchange('Your API URL','Your API Key');
 
-$exch->getCalcData();
+$exch->getCalcData(array(
+	'partner_id'    => 'Your ID'
+));
 echo  $exch->result.'<br><br>';
 
 $exch->process(array(
@@ -37,6 +39,7 @@ $exch->process(array(
 echo  $exch->result.'<br><br>';
 
 $exch->getCalcComissions(array(
+	'partner_id'    => <Your ID>,
     'method' 		=> 2,
     'from'  		=> 2,
     'to'   			=> 3,

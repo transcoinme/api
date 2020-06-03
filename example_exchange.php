@@ -9,9 +9,12 @@ require_once __DIR__ .'/exchange.php';
 $exch = new Exchange(<Your API URL>,<Your API Key>);
 
 //First, we request data for calculating the transaction
-$exch->getCalcData();
-// Request result will store in result property of the Exchange object
-echo  $exch->result.'<br><br>';
+$exch->getCalcData(array(
+	'partner_id'    => <Your ID>, //you may find on the settings page on our website
+));
+// Request result will store in result property of the Exchange object (will be overwriten upon repeated request)
+print_r($exch->result); 
+echo '<br><br>';
 
 $exch->process(array(
     'partner_id'    => <Your ID>, //you may find on the settings page on our website
@@ -26,9 +29,11 @@ $exch->process(array(
     ));
 	
 // Request result will store in result property of the Exchange object (will be overwriten upon repeated request)
-echo  $exch->result.'<br><br>';
+print_r($exch->result); 
+echo '<br><br>';
 
 $exch->getCalcComissions(array(
+	'partner_id'    => <Your ID>, //you may find on the settings page on our website
     'method' 		=> 2, //method ID (you may get it from request getCalcData)
     'from'  		=> 2, //currency ID (you may get it from request getCalcData)
     'to'   			=> 3, //cryptocurrency ID (you may get it from request getCalcData)
@@ -36,5 +41,6 @@ $exch->getCalcComissions(array(
     ));
 	
 // Request result will store in result property of the Exchange object (will be overwriten upon repeated request)
-echo  $exch->result.'<br><br>';
+print_r($exch->result); 
+echo '<br><br>';
 ?>
