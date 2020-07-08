@@ -51,7 +51,7 @@ class Request {
 		curl_close($curl);
 		$this->headers = [];
 		
-		$result = json_decode($result, true);
+		//$this->result = json_decode($this->result, true);
 		
 		if(!$this->result){
 			return false;
