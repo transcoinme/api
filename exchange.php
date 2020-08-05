@@ -9,7 +9,7 @@ class Exchange extends Request {
 		$this->url = $api_url;
 		$this->type = 'exchange';
 		$this->access_key = $user_api_key;
-		$this->alowed_methods = ['process','getCalcData','getCalcComissions'];
+		$this->alowed_methods = ['process','getCalcData','getCalcComissions','exchange'];
 	}
  }
  

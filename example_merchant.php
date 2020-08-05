@@ -17,13 +17,22 @@ $merch->process(array(
     'amount' 		=> 200, //transaction sum
     'currency'      => 'EUR', //currency name
     'crypto_currency' => 'BTC', //cryptocurrency name
-    'order_number'  => 24, //  number of order in your store
+    'order_number'  => 24, //  number of order in your store, must bee unique for project
     'description'   => 'Order Payment #24', //order comment
     'date'          => date('d-m-Y H:i:s'), //date, as usual now()
     ));
 	
 // Request result will store in result property of the merchant object
 //so we should to display it or may be you want to do something with it
-echo  $merch->result.'<br><br>'; // or may be rerurn $merch->result;
+print_r($merch->result); 
+echo '<br><br>'; // or may be rerurn $merch->result;
+//get transaction status
+$res = json_decode($merch->result, true);
+$merch->merchant(array( // After request, result will be overwritten
+    'project_id'    => 1, //your project ID. You may see it in project preferences
+    'transaction_id'    => $res['id'], //Transaction ID.
+    ));
+print_r($merch->result); 
+echo '<br><br>';
 
 ?>

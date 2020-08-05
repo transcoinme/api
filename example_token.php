@@ -21,6 +21,7 @@ $merch->process(array(
 	'email'			=> 'example@serve.com' // user email
     'wallet'		=> <'your wallet here'>, //  Your wallet
     'order_url'   	=> 'https://some-where.com', // Request URL on your site
+    'lang_code'   	=> 'en', // Request lang code (en,ru,lv,ee)
     ));
 	
 // Request result will store in result property of the token object

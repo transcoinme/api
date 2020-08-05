@@ -11,7 +11,7 @@ class Merchant extends Request {
 		$this->url = $api_url;
 		$this->type = 'merchant';
 		$this->access_key = $project_access_key;
-		$this->alowed_methods = ['process'];
+		$this->alowed_methods = ['process','merchant'];
 	}
  }
  

@@ -18,13 +18,11 @@ class Request {
 		$args[0] = json_encode($args[0]);
 		
 		$this->sign = md5($args[0].$this->access_key);
-
+		
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_POST, 1);
-		
-		$this->url = $this->url .'/'.$method;
-        $data = isset($args[0]) ? $args[0] : false;
-		
+
+        $data = isset($args[0]) ? $args[0] : false;		
 		if ($data) curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 				
 		$this->headers[] = "Content-Type: application/json";
@@ -34,7 +32,7 @@ class Request {
 			$this->sign = '';
 		}
 		
-		curl_setopt($curl, CURLOPT_URL, $this->url);
+		curl_setopt($curl, CURLOPT_URL, $this->url .'/'.$method);
 		curl_setopt($curl, CURLOPT_HTTPHEADER, $this->headers);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
@@ -46,9 +44,10 @@ class Request {
 		// Then, after your curl_exec call:
 		$header_size = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
 		$header = substr($response, 0, $header_size);
-		$this->result = substr($response, $header_size);	
-
+		$this->result = substr($response, $header_size);
+		
 		curl_close($curl);
+		
 		$this->headers = [];
 		
 		//$this->result = json_decode($this->result, true);
@@ -59,7 +58,6 @@ class Request {
 
 		return true;
 	}
-	
  }
  
  ?>

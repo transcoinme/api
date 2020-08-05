@@ -25,10 +25,19 @@ $exch->process(array(
     'from'  		=> 2, //currency ID (you may get it from request getCalcData)
     'to'   			=> 3, //cryptocurrency ID (you may get it from request getCalcData)
     'amount'        => 200, //transaction sum
+	'order_url'   	=> 'https://some-where.com', // Request URL on your site
 	'lang_code'		=> 'en', //language code (en,ru,lv,ee)
     ));
 	
 // Request result will store in result property of the Exchange object (will be overwriten upon repeated request)
+print_r($exch->result); 
+echo '<br><br>';
+
+$res = json_decode($exch->result, true);
+$exch->exchange(array( // After request, result will be overwritten
+    'partner_id'    => <Your ID>, //you may find on the settings page on our website
+    'exchange_id'    => $res['id'], //Transaction ID.
+    ));
 print_r($exch->result); 
 echo '<br><br>';
 
