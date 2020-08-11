@@ -21,6 +21,9 @@ $merch->process(array(
 	'email'			=> 'example@serve.com' // user email
     'wallet'		=> <'your wallet here'>, //  Your wallet
     'order_url'   	=> 'https://some-where.com', // Request URL on your site
+	'autoconvert'   => 1,
+    'success_url'   => 'https://some-where.com/success',
+    'fail_url'   	=> 'https://some-where.com/fail',
     'lang_code'   	=> 'en', // Request lang code (en,ru,lv,ee)
     ));
 	

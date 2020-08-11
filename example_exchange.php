@@ -26,6 +26,9 @@ $exch->process(array(
     'to'   			=> 3, //cryptocurrency ID (you may get it from request getCalcData)
     'amount'        => 200, //transaction sum
 	'order_url'   	=> 'https://some-where.com', // Request URL on your site
+	'autoconvert'   => 1,
+    'success_url'   => 'https://some-where.com/success',
+    'fail_url'   	=> 'https://some-where.com/fail',
 	'lang_code'		=> 'en', //language code (en,ru,lv,ee)
     ));
 	
