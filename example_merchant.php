@@ -20,7 +20,7 @@ $merch->process(array(
     'order_number'  => 24, //  number of order in your store, must bee unique for project
     'description'   => 'Order Payment #24', //order comment
     'date'          => date('d-m-Y H:i:s'), //date, as usual now()
-	'autoconvert'   => 1,
+	'autoredirect'  => 1,
     'success_url'   => 'https://some-where.com/success',
     'fail_url'   	=> 'https://some-where.com/fail',
     ));
