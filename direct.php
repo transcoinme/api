@@ -9,7 +9,7 @@ class Direct extends Request {
 		$this->url = $api_url;
 		$this->type = 'direct';
 		$this->access_key = $user_api_key;
-		$this->alowed_methods = ['process','calcDirectComissions','calcDirectExchangeSellSum'];
+		$this->alowed_methods = ['process','calcDirectComissions'];
 	}
  }
  

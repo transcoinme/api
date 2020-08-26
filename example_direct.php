@@ -37,14 +37,20 @@ $direct->process(array(
 print_r($direct->result); 
 echo '<br><br>';
 
-$direct->calcDirectExchangeSellSum(array(
-	'partner_id'    => <Your ID>, //you may find on the settings page on our website
-    'from'  		=> 2, //currency ID (you may get it from request getCalcData)
-    'to'   			=> 3, //cryptocurrency ID (you may get it from request getCalcData)
-    'receive'       => 200, //the amount you would like to receive
+//sell example
+$direct->process(array(
+    'partner_id'    => 2125, //you may find on the settings page on our website
+    'from'  		=> 3, //currency ID (you may get it from request getCalcData)
+    'to'   			=> 2, //cryptocurrency ID (you may get it from request getCalcData)
+    'receive'       => 200, //transaction sum, which you want to receive
+	'order_url'   	=> 'https://some-where.com', // Request URL on your site
+	'autoredirect'  => 1, // whether of autoredirect 1 - enable, 0 - disable
+    'success_url'   => 'https://some-where.com/success',
+    'fail_url'   	=> 'https://some-where.com/fail',
     ));
 	
 // Request result will store in result property of the Exchange object (will be overwriten upon repeated request)
 print_r($direct->result); 
 echo '<br><br>';
+
 ?>
