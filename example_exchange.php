@@ -21,11 +21,10 @@ $exch->process(array(
     'wallet' 		=> <Your wallet>, // be very careful and attentive - erroneous data 
 									  //can lead to the access to your financial transactions by others
     'email'      	=> <Your email>,
-    'method' 		=> 2, //method ID (you may get it from request getCalcData)
-    'from'  		=> 2, //currency ID (you may get it from request getCalcData)
-    'to'   			=> 3, //cryptocurrency ID (you may get it from request getCalcData)
+    'method' 		=> 'card', //method ID (you may get it from request getCalcData)
+    'from'  		=> 'EUR', //currency ID (you may get it from request getCalcData)
+    'to'   			=> 'BTC', //cryptocurrency ID (you may get it from request getCalcData)
     'amount'        => 200, //transaction sum
-	'order_url'   	=> 'https://some-where.com', // Request URL on your site
 	'autoredirect'  => 1, // whether of autoredirect 1 - enable, 0 - disable
     'success_url'   => 'https://some-where.com/success',
     'fail_url'   	=> 'https://some-where.com/fail',
@@ -46,9 +45,9 @@ echo '<br><br>';
 
 $exch->getCalcComissions(array(
 	'partner_id'    => <Your ID>, //you may find on the settings page on our website
-    'method' 		=> 2, //method ID (you may get it from request getCalcData)
-    'from'  		=> 2, //currency ID (you may get it from request getCalcData)
-    'to'   			=> 3, //cryptocurrency ID (you may get it from request getCalcData)
+    'method' 		=> 'card', //method ID (you may get it from request getCalcData)
+    'from'  		=> 'EUR', //currency ID (you may get it from request getCalcData)
+    'to'   			=> 'BTC', //cryptocurrency ID (you may get it from request getCalcData)
     'amount'        => 200, //transaction sum (may be null)
     ));
 	

@@ -17,10 +17,9 @@ $merch->process(array(
     'amount' 		=> 200, //transaction sum
 	'pay_type'		=> 'bank', // Optional parameter, can take values
 							   // "card" or "bank". The default is "card"
-    'from'		    => '2', //currency ID. Euro only.
+    'from'		    => 'EUR', //currency ID. Euro only.
 	'email'			=> 'example@serve.com' // user email
     'wallet'		=> <'your wallet here'>, //  Your wallet
-    'order_url'   	=> 'https://some-where.com', // Request URL on your site
 	'autoredirect'  => 1, // whether of autoredirect 1 - enable, 0 - disable
     'success_url'   => 'https://some-where.com/success',
     'fail_url'   	=> 'https://some-where.com/fail',

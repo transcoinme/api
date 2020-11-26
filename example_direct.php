@@ -11,8 +11,8 @@ $direct = new Direct(<Your API URL>,<Your API Key>);
 //First, we request data for calculating the transaction
 $direct->calcDirectComissions(array(
 	'partner_id'    => <Your ID>, //you may find on the settings page on our website
-	'from'  		=> 2, //currency ID (you may get it from request getCalcData)
-    'to'   			=> 3, //cryptocurrency ID (you may get it from request getCalcData)
+	'from'  		=> 'EUR', //currency ID (you may get it from request getCalcData)
+    'to'   			=> 'BTC', //cryptocurrency ID (you may get it from request getCalcData)
 	'amount'        => 200, //transaction sum - optional parameter
 ));
 // Request result will store in result property of the Exchange object (will be overwriten upon repeated request)
@@ -24,10 +24,9 @@ $direct->process(array(
     'wallet' 		=> <Your wallet>, // Crypto wallet must be transferred for cryptocurrency purchase transactions
 									  // be very careful and attentive - erroneous data 
 									  //can lead to the access to your financial transactions by others
-    'from'  		=> 2, //currency ID (you may get it from request getCalcData)
-    'to'   			=> 3, //cryptocurrency ID (you may get it from request getCalcData)
+    'from'  		=> 'EUR', //currency ID (you may get it from request getCalcData)
+    'to'   			=> 'BTC', //cryptocurrency ID (you may get it from request getCalcData)
     'amount'        => 200, //transaction sum
-	'order_url'   	=> 'https://some-where.com', // Request URL on your site
 	'autoredirect'  => 1, // whether of autoredirect 1 - enable, 0 - disable
     'success_url'   => 'https://some-where.com/success',
     'fail_url'   	=> 'https://some-where.com/fail',
@@ -40,10 +39,9 @@ echo '<br><br>';
 //sell example
 $direct->process(array(
     'partner_id'    => 2125, //you may find on the settings page on our website
-    'from'  		=> 3, //currency ID (you may get it from request getCalcData)
-    'to'   			=> 2, //cryptocurrency ID (you may get it from request getCalcData)
+    'from'  		=> 'BTC', //currency ID (you may get it from request getCalcData)
+    'to'   			=> 'EUR', //cryptocurrency ID (you may get it from request getCalcData)
     'receive'       => 200, //transaction sum, which you want to receive
-	'order_url'   	=> 'https://some-where.com', // Request URL on your site
 	'autoredirect'  => 1, // whether of autoredirect 1 - enable, 0 - disable
     'success_url'   => 'https://some-where.com/success',
     'fail_url'   	=> 'https://some-where.com/fail',
