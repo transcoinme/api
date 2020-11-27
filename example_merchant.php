@@ -1,19 +1,23 @@
 <?php
 use transcoinme\api\Merchant as Merchant;
 
+$apiUrl = ''; // Your API URL
+$apiKey = ''; // Your API Key
+$projectId = ''; // your project ID. You may see it in project preferences
+
 //Include the merchant class
 require_once __DIR__ .'/merchant.php';
 
 //Create Merchant object
 //API URL and Project Access Key you may find on the project settings page on our website
-$merch = new Merchant(<Your API URL>,<Your Project Access Key>);
+$merch = new Merchant($apiUrl,$apiKey);
 
 //And call method process with parameters. 
 //Note type = 'merchant' will set in Merchant class:
 // $this->type = 'merchant';
 //So we have no needance to pass this parameter in input array
 $merch->process(array(
-    'project_id'    => 1, //your project ID. You may see it in project preferences
+    'project_id'    => $projectId, //your project ID. You may see it in project preferences
     'amount' 		=> 200, //transaction sum
     'currency'      => 'EUR', //currency name
     'crypto_currency' => 'BTC', //cryptocurrency name
@@ -32,7 +36,7 @@ echo '<br><br>'; // or may be rerurn $merch->result;
 //get transaction status
 $res = json_decode($merch->result, true);
 $merch->merchant(array( // After request, result will be overwritten
-    'project_id'    => 1, //your project ID. You may see it in project preferences
+    'project_id'    => $projectId, //your project ID. You may see it in project preferences
     'transaction_id'    => $res['id'], //Transaction ID.
     ));
 print_r($merch->result); 

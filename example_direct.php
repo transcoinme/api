@@ -1,16 +1,20 @@
 <?php
 use transcoinme\api\Exchange as Exchange;
 
+$apiUrl = ''; // Your API URL
+$apiKey = ''; // Your API Key
+$partnerId = ''; // Your partner id
+
 //Include the Exchange Direct class
 require_once __DIR__ .'/direct.php';
 
 //Create Exchange object
 //API URL and Your API Key you may find on the settings page on our website
-$direct = new Direct(<Your API URL>,<Your API Key>);
+$direct = new Direct($apiUrl,$apiKey);
 
 //First, we request data for calculating the transaction
 $direct->calcDirectComissions(array(
-	'partner_id'    => <Your ID>, //you may find on the settings page on our website
+	'partner_id'    => $partnerId, //you may find on the settings page on our website
 	'from'  		=> 'EUR', //currency ID (you may get it from request getCalcData)
     'to'   			=> 'BTC', //cryptocurrency ID (you may get it from request getCalcData)
 	'amount'        => 200, //transaction sum - optional parameter
@@ -20,8 +24,8 @@ print_r($direct->result);
 echo '<br><br>';
 
 $direct->process(array(
-    'partner_id'    => <Your ID>, //you may find on the settings page on our website
-    'wallet' 		=> <Your wallet>, // Crypto wallet must be transferred for cryptocurrency purchase transactions
+    'partner_id'    => $partnerId, //you may find on the settings page on our website
+    'wallet' 		=> 'your wallet', // Crypto wallet must be transferred for cryptocurrency purchase transactions
 									  // be very careful and attentive - erroneous data 
 									  //can lead to the access to your financial transactions by others
     'from'  		=> 'EUR', //currency ID (you may get it from request getCalcData)
@@ -38,7 +42,7 @@ echo '<br><br>';
 
 //sell example
 $direct->process(array(
-    'partner_id'    => 2125, //you may find on the settings page on our website
+    'partner_id'    => $partnerId, //you may find on the settings page on our website
     'from'  		=> 'BTC', //currency ID (you may get it from request getCalcData)
     'to'   			=> 'EUR', //cryptocurrency ID (you may get it from request getCalcData)
     'receive'       => 200, //transaction sum, which you want to receive
