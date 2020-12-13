@@ -42,7 +42,7 @@ echo '<br><br>';
 $res = json_decode($exch->result, true);
 $exch->exchange(array( // After request, result will be overwritten
     'partner_id'    => $partnerId, //you may find on the settings page on our website
-    'exchange_id'    => $res['id'], //Transaction ID.
+    'exchange_id'    => $res['exchange_data']['id'], //Transaction ID.
     ));
 print_r($exch->result); 
 echo '<br><br>';
